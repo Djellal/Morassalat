@@ -1,0 +1,43 @@
+@page "{id:int}"
+@model Morassalat.Pages.ApplicationParameters.DetailsModel
+@{
+    ViewData["Title"] = "Application Parameter Details";
+}
+
+<h1>Application Parameter Details</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Tenant</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.Tenant.Name</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.ApplicationName)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.ApplicationName</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.Description)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.Description</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.ContactEmail)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.ContactEmail</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.ContactPhone)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.ContactPhone</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.Address)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.Address</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.CurrentAdministrativeYear)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.CurrentAdministrativeYear</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.LogoUrl)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.LogoUrl</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ApplicationParameter.Website)</dt>
+        <dd class="col-sm-9">@Model.ApplicationParameter.Website</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-page="Edit" asp-route-id="@Model.ApplicationParameter.Id" class="btn btn-primary">Edit</a>
+    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+</div>

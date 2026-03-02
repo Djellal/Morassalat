@@ -8,4 +8,5 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 {
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<ApplicationParameter> ApplicationParameters { get; set; }
+    public DbSet<TenantUser> TenantUsers { get; set; }
 }

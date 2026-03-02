@@ -1,0 +1,81 @@
+@page "{id:int}"
+@model Morassalat.Pages.ApplicationParameters.EditModel
+@{
+    ViewData["Title"] = "Edit Application Parameter";
+}
+
+<h1>Edit Application Parameter</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ApplicationParameter.Id" />
+            @if (Model.IsAdmin)
+            {
+                <div class="mb-3">
+                    <label asp-for="ApplicationParameter.TenantId" class="form-label">Tenant</label>
+                    <select asp-for="ApplicationParameter.TenantId" asp-items="Model.TenantList" class="form-select">
+                        <option value="">-- Select Tenant --</option>
+                    </select>
+                    <span asp-validation-for="ApplicationParameter.TenantId" class="text-danger"></span>
+                </div>
+            }
+            else
+            {
+                <input type="hidden" asp-for="ApplicationParameter.TenantId" />
+            }
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.ApplicationName" class="form-label"></label>
+                <input asp-for="ApplicationParameter.ApplicationName" class="form-control" />
+                <span asp-validation-for="ApplicationParameter.ApplicationName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.Description" class="form-label"></label>
+                <textarea asp-for="ApplicationParameter.Description" class="form-control"></textarea>
+                <span asp-validation-for="ApplicationParameter.Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.ContactEmail" class="form-label"></label>
+                <input asp-for="ApplicationParameter.ContactEmail" class="form-control" />
+                <span asp-validation-for="ApplicationParameter.ContactEmail" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.ContactPhone" class="form-label"></label>
+                <input asp-for="ApplicationParameter.ContactPhone" class="form-control" />
+                <span asp-validation-for="ApplicationParameter.ContactPhone" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.Address" class="form-label"></label>
+                <textarea asp-for="ApplicationParameter.Address" class="form-control"></textarea>
+                <span asp-validation-for="ApplicationParameter.Address" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.CurrentAdministrativeYear" class="form-label"></label>
+                <input asp-for="ApplicationParameter.CurrentAdministrativeYear" class="form-control" />
+                <span asp-validation-for="ApplicationParameter.CurrentAdministrativeYear" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.LogoUrl" class="form-label"></label>
+                <input asp-for="ApplicationParameter.LogoUrl" class="form-control" />
+                <span asp-validation-for="ApplicationParameter.LogoUrl" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ApplicationParameter.Website" class="form-label"></label>
+                <input asp-for="ApplicationParameter.Website" class="form-control" />
+                <span asp-validation-for="ApplicationParameter.Website" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @if (Model.IsAdmin)
+                {
+                    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

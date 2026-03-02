@@ -1,0 +1,43 @@
+@page
+@model Morassalat.Pages.Tenants.IndexModel
+@{
+    ViewData["Title"] = "Tenants";
+}
+
+<h1>Tenants</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Contact Email</th>
+            <th>Contact Phone</th>
+            <th>Active</th>
+            <th>Created At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tenants)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Code</td>
+                <td>@item.ContactEmail</td>
+                <td>@item.ContactPhone</td>
+                <td>@(item.IsActive ? "Yes" : "No")</td>
+                <td>@item.CreatedAt.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

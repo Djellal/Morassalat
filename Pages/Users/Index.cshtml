@@ -1,0 +1,43 @@
+@page
+@model Morassalat.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="Create" class="btn btn-primary">Create New</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Tenants</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>@item.Email</td>
+                <td>@item.Roles</td>
+                <td>@item.Tenants</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.Id">Edit</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <text> | </text>
+                        <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

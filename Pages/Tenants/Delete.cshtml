@@ -1,0 +1,31 @@
+@page "{id:int}"
+@model Morassalat.Pages.Tenants.DeleteModel
+@{
+    ViewData["Title"] = "Delete Tenant";
+}
+
+<h1>Delete Tenant</h1>
+
+<h3>Are you sure you want to delete this tenant?</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.Name)</dt>
+        <dd class="col-sm-9">@Model.Tenant.Name</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.Code)</dt>
+        <dd class="col-sm-9">@Model.Tenant.Code</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.ContactEmail)</dt>
+        <dd class="col-sm-9">@Model.Tenant.ContactEmail</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.IsActive)</dt>
+        <dd class="col-sm-9">@(Model.Tenant.IsActive ? "Yes" : "No")</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Tenant.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>

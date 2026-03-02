@@ -1,0 +1,43 @@
+@page "{id:int}"
+@model Morassalat.Pages.Tenants.DetailsModel
+@{
+    ViewData["Title"] = "Tenant Details";
+}
+
+<h1>Tenant Details</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.Name)</dt>
+        <dd class="col-sm-9">@Model.Tenant.Name</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.Code)</dt>
+        <dd class="col-sm-9">@Model.Tenant.Code</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.Description)</dt>
+        <dd class="col-sm-9">@Model.Tenant.Description</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.ContactEmail)</dt>
+        <dd class="col-sm-9">@Model.Tenant.ContactEmail</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.ContactPhone)</dt>
+        <dd class="col-sm-9">@Model.Tenant.ContactPhone</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.Address)</dt>
+        <dd class="col-sm-9">@Model.Tenant.Address</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.LogoUrl)</dt>
+        <dd class="col-sm-9">@Model.Tenant.LogoUrl</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.IsActive)</dt>
+        <dd class="col-sm-9">@(Model.Tenant.IsActive ? "Yes" : "No")</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Tenant.CreatedAt)</dt>
+        <dd class="col-sm-9">@Model.Tenant.CreatedAt.ToString("yyyy-MM-dd HH:mm")</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-page="Edit" asp-route-id="@Model.Tenant.Id" class="btn btn-primary">Edit</a>
+    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+</div>

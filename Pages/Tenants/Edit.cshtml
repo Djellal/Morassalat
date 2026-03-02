@@ -1,0 +1,64 @@
+@page "{id:int}"
+@model Morassalat.Pages.Tenants.EditModel
+@{
+    ViewData["Title"] = "Edit Tenant";
+}
+
+<h1>Edit Tenant</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tenant.Id" />
+            <input type="hidden" asp-for="Tenant.CreatedAt" />
+            <div class="mb-3">
+                <label asp-for="Tenant.Name" class="form-label"></label>
+                <input asp-for="Tenant.Name" class="form-control" />
+                <span asp-validation-for="Tenant.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tenant.Code" class="form-label"></label>
+                <input asp-for="Tenant.Code" class="form-control" />
+                <span asp-validation-for="Tenant.Code" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tenant.Description" class="form-label"></label>
+                <textarea asp-for="Tenant.Description" class="form-control"></textarea>
+                <span asp-validation-for="Tenant.Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tenant.ContactEmail" class="form-label"></label>
+                <input asp-for="Tenant.ContactEmail" class="form-control" />
+                <span asp-validation-for="Tenant.ContactEmail" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tenant.ContactPhone" class="form-label"></label>
+                <input asp-for="Tenant.ContactPhone" class="form-control" />
+                <span asp-validation-for="Tenant.ContactPhone" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tenant.Address" class="form-label"></label>
+                <textarea asp-for="Tenant.Address" class="form-control"></textarea>
+                <span asp-validation-for="Tenant.Address" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Tenant.LogoUrl" class="form-label"></label>
+                <input asp-for="Tenant.LogoUrl" class="form-control" />
+                <span asp-validation-for="Tenant.LogoUrl" class="text-danger"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input asp-for="Tenant.IsActive" class="form-check-input" />
+                <label asp-for="Tenant.IsActive" class="form-check-label"></label>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
