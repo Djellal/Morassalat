@@ -8,7 +8,7 @@ using Morassalat.Models;
 
 namespace Morassalat.Pages.ApplicationParameters;
 
-[Authorize(Roles = $"{Roles.Admin},{Roles.StructAdmin}")]
+[Authorize(Roles = $"{Roles.Admin},{Roles.TenantAdmin}")]
 public class EditModel(ApplicationDbContext context) : PageModel
 {
     [BindProperty]

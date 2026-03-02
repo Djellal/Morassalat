@@ -68,7 +68,7 @@ public class CreateModel(ApplicationDbContext context, UserManager<IdentityUser>
 
     private async Task PopulateListsAsync()
     {
-        RoleList = new SelectList(new[] { Roles.Admin, Roles.StructAdmin, Roles.User });
+        RoleList = new SelectList(new[] { Roles.Admin, Roles.TenantAdmin, Roles.User });
         TenantList = new MultiSelectList(await context.Tenants.ToListAsync(), "Id", "Name");
     }
 

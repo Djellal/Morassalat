@@ -10,7 +10,7 @@ using Morassalat.Models;
 
 namespace Morassalat.Pages.Users;
 
-[Authorize(Roles = $"{Roles.Admin},{Roles.StructAdmin}")]
+[Authorize(Roles = $"{Roles.Admin},{Roles.TenantAdmin}")]
 public class EditModel(ApplicationDbContext context, UserManager<IdentityUser> userManager) : PageModel
 {
     [BindProperty]
@@ -133,7 +133,7 @@ public class EditModel(ApplicationDbContext context, UserManager<IdentityUser> u
     {
         if (User.IsInRole(Roles.Admin))
         {
-            RoleList = new SelectList(new[] { Roles.Admin, Roles.StructAdmin, Roles.User });
+            RoleList = new SelectList(new[] { Roles.Admin, Roles.TenantAdmin, Roles.User });
             TenantList = new MultiSelectList(
                 await context.Tenants.ToListAsync(), "Id", "Name", Input.TenantIds);
         }

@@ -7,14 +7,14 @@ using Morassalat.Models;
 
 namespace Morassalat.Pages.ApplicationParameters;
 
-[Authorize(Roles = $"{Roles.Admin},{Roles.StructAdmin}")]
+[Authorize(Roles = $"{Roles.Admin},{Roles.TenantAdmin}")]
 public class IndexModel(ApplicationDbContext context) : PageModel
 {
     public IList<ApplicationParameter> ApplicationParameters { get; set; } = [];
 
     public async Task<IActionResult> OnGetAsync()
     {
-        if (User.IsInRole(Roles.StructAdmin))
+        if (User.IsInRole(Roles.TenantAdmin))
         {
             var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
             var tenantId = await context.TenantUsers

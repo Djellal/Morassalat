@@ -8,7 +8,7 @@ public static class DbSeeder
     public static async Task SeedAsync(IServiceProvider serviceProvider)
     {
         var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-        string[] roles = [Roles.Admin, Roles.StructAdmin, Roles.User];
+        string[] roles = [Roles.Admin, Roles.TenantAdmin, Roles.User];
 
         foreach (var role in roles)
         {

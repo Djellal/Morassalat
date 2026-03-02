@@ -7,7 +7,7 @@ using Morassalat.Models;
 
 namespace Morassalat.Pages.Users;
 
-[Authorize(Roles = $"{Roles.Admin},{Roles.StructAdmin}")]
+[Authorize(Roles = $"{Roles.Admin},{Roles.TenantAdmin}")]
 public class IndexModel(ApplicationDbContext context, UserManager<IdentityUser> userManager) : PageModel
 {
     public IList<UserViewModel> Users { get; set; } = [];
